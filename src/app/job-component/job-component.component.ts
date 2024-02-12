@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class JobComponentComponent implements OnInit {
   public isPreRequisitesOpen = false;
+  isJobRolesOpen: boolean[] = [];
   private _jobid: any;
   public job: any;
   public jobs = [
@@ -200,9 +201,16 @@ export class JobComponentComponent implements OnInit {
     this._jobid = id;
     this.job = this.jobs.filter((job) => job.id === this._jobid);
     this.job = this.job[0];
-  }
 
+    for (let i = 0; i < this.job?.jobRoleWithDetails?.length; i++) {
+      this.isJobRolesOpen.push(false);
+    }
+  }
   tooglePreRequisitesOpen() {
     this.isPreRequisitesOpen = !this.isPreRequisitesOpen;
+  }
+
+  toogleisJobRolesOpen(id: any) {
+    this.isJobRolesOpen[id] = !this.isJobRolesOpen[id];
   }
 }

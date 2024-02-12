@@ -118,39 +118,49 @@
         <input type="file" accept=".pdf" id="input_file" />
     </div>
 </div>
-<div class="individual__jobrole">
-    @for(jobdetail of job.jobRoleWithDetails; track $index){
-    <div class="details__for__jobrole">
-        <h1>{{jobdetail.job_role}}</h1>
-        <div class="arrow__container" (click)="tooglePreRequisitesOpen()">
-            <div class="splitter"></div>
-            <mat-icon class="arrow__icon">
-                @if(isPreRequisitesOpen){
-                expand_less
-                }
-                @else{
-                expand_more
-                }
-            </mat-icon>
+<div class="roles">
+    @for (role of job.jobRoleWithDetails; track $index) {
+    <div class="role__component">
+        <div class="role__component__header">
+            <h1>{{role.job_role}}</h1>
+            <div class="arrow__container" (click)="toogleisJobRolesOpen($index)">
+                <div class="splitter"></div>
+                <mat-icon class="arrow__icon">
+                    @if(isJobRolesOpen[$index]){
+                    expand_less
+                    }
+                    @else{
+                    expand_more
+                    }
+                </mat-icon>
+            </div>
         </div>
-    </div>
-    <div class="details">
-        <h6>Gross Compensation package :</h6>
-        <div>{{jobdetail.packages}}</div>
-        <hr>
-        <h6>Role Description :</h6>
-        @for (description of jobdetail.roleDescription.split('- '); track $index) {
-        @if (description.length) {
-        <div> - {{description}}</div>
-        }
-        }
-        <hr>
-        <h6>Role Responsibilities :</h6>
-        @for (requirement of jobdetail.requirements.split('- '); track $index) {
-        @if (requirement.length) {
-        <div> - {{requirement}}</div>
-        }
-        }
+
+        <div class="role__details__card" [hidden]="!isJobRolesOpen[$index]">
+            <div class="package__details">
+                <h6>gross compensation package :</h6>
+                <div>Rs. {{role.packages}} lpa </div>
+            </div>
+            <hr />
+            <div class="role__description">
+                <h6>Role Description :</h6>
+                @for (desc of role.roleDescription.split('- '); track $index) {
+                @if (desc.length) {
+                <div>- {{desc}}</div>
+                }
+                }
+            </div>
+            <hr />
+            <div class="requirements">
+                <h6>Requirements :</h6>
+                @for (reqs of role.requirements.split('- '); track $index) {
+                @if (reqs.length) {
+                <div>- {{reqs}}</div>
+                }
+                }
+            </div>
+        </div>
+
     </div>
     }
 </div>

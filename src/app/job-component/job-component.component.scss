@@ -159,11 +159,6 @@
     width: 100%;
     margin-bottom: 16px;
   }
-  // input[type="checkbox"] {
-  //   background-color: black;
-  //   margin: 0px;
-  //   accent-color: $secondary-color;
-  // }
   input[type="checkbox"] {
     // appearance: none;
 
@@ -235,48 +230,55 @@
     }
   }
 }
-.individual__jobrole {
-  h6 {
-    margin: 0;
-    font-size: $xsmall-font + px;
-    color: $sixth-color;
-  }
-  hr {
-    margin: 0;
-    border: 1px solid $border-12-color;
-    flex: 1;
-    width: 100%;
-  }
-  margin: 26px 24px;
-  .details__for__jobrole {
-    box-shadow: 0px 4px 6px #0000003d;
-    background-color: #dbefff;
-    height: 40px;
-    padding: 10px 8px 10px 16px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    @include displayFlex(space-between, normal);
-    h1 {
-      margin: 0;
-      font-size: 16px;
-    }
-    .details {
-      h6 {
-        margin: 0;
-        font-size: $xsmall-font + px;
-        color: $sixth-color;
-      }
-      hr {
-        margin: 16px;
-        border: 1px solid $border-12-color;
-        flex: 1;
-        width: 100%;
-      }
+.roles {
+  margin: 24px;
+  .role__component {
+    margin: 16px 0;
+    box-shadow: 0px 4px 6px #00000029;
+    .role__component__header {
       background-color: #dbefff;
-      height: 40px;
+      height: 56px;
       padding: 10px 8px 10px 16px;
-      margin: 0;
+
       box-sizing: border-box;
+      @include displayFlex(space-between, normal);
+      h1 {
+        margin: 0;
+        font-size: 16px;
+        @include displayFlex(normal, center);
+      }
+
+      .arrow__container {
+        cursor: pointer;
+        @include displayFlex(space-between, center);
+        .splitter {
+          border: 1px solid $border-12-color;
+          height: 56px;
+        }
+        .arrow__icon {
+          color: $secondary-color;
+          margin-left: 8px;
+          // width: 12px;
+          height: 24px;
+          // font-size: 12px;
+        }
+      }
+    }
+  }
+  .role__details__card {
+    background-color: $white-color;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 24px;
+    hr {
+      margin: 16px 0;
+    }
+    h6 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      // margin: 0;
+      font-size: $xsmall-font + px;
+      color: $sixth-color;
     }
   }
 }
