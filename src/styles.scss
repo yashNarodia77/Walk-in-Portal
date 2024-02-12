@@ -1,0 +1,16 @@
+@import "scss/variables";
+
+@font-face {
+  font-family: quicksand;
+  src: url(assets/Quicksand\ font\ 1/Quicksand-VariableFont_wght.ttf);
+  font-weight: 400;
+  font-size: $base-font + px;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: quicksand;
+  font-weight: 600;
+  color: $primary-color;
+}

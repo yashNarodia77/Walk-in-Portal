@@ -1,0 +1,138 @@
+@import "../../scss/variables";
+@import "../../scss/functions";
+
+.login_mainContainer {
+  background-color: $main-background-color;
+  min-height: 91vh;
+  @include displayFlex(center, center);
+  flex-direction: column;
+  position: relative;
+
+  h1 {
+    text-align: center;
+    margin: 0px;
+    font-size: $xxlarge-font + px;
+  }
+
+  .login_container {
+    background: $white-color;
+    padding: 24px 32px;
+    width: 424px;
+
+    border-top: 4px solid $border-color;
+    border-radius: 2px 2px 0px 0px;
+
+    :first-child {
+      @include displayFlex(normal, normal);
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .login_filed_container {
+      @include displayFlex(normal, normal);
+      flex-direction: column;
+    }
+
+    .inp_field {
+      position: relative;
+    }
+
+    .inp_field > img {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+
+    .login_inp {
+      background-color: $white-color;
+      border: 0px;
+      border-bottom: 1px solid $border-12-color;
+      width: 100%;
+      font-size: $base-font + px;
+    }
+
+    .login_inp:focus,
+    .login_inp:active {
+      outline: none;
+    }
+
+    .inp_forgot {
+      cursor: pointer;
+      align-self: flex-end;
+      text-decoration: none;
+      color: $secondary-color;
+      font-size: $small-font + px;
+      margin-top: 5px;
+    }
+
+    .remember_me {
+      @include displayFlex(normal, center);
+      font-size: $base-font + px;
+      margin-top: 26px;
+      gap: 5px;
+
+      input[type="checkbox"] {
+        height: 24px;
+        width: 24px;
+        accent-color: $secondary-color;
+      }
+      input[type="checkbox"] {
+        height: 24px;
+        width: 24px;
+        accent-color: $secondary-color;
+        // border-color: yellow;
+      }
+    }
+    .login_button_container {
+      > button {
+        cursor: pointer;
+        background-color: $button-background-color;
+        font-size: $small-font + px;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.24);
+        width: 216px;
+        height: 40px;
+        border: none;
+        margin: 34px auto 24px;
+        justify-content: center;
+        font-family: quicksand;
+        font-weight: 600;
+      }
+    }
+
+    .register_user {
+      text-align: center;
+    }
+    .register_user > p {
+      margin: 0px;
+      font-size: $xsmall-font + px;
+      margin-bottom: 4px;
+    }
+  }
+
+  .more_options {
+    @include displayFlex(center, center);
+    gap: 9px;
+    position: absolute;
+    bottom: 40px;
+    > a {
+      color: $secondary-color;
+      font-size: $small-font + px;
+      text-decoration: none;
+    }
+  }
+
+  .splitter {
+    @include splitter($border-12-color, 18);
+  }
+}
+
+// @media screen and (max-width: 376px) {
+@media screen and (max-width: 500px) {
+  .login_mainContainer {
+    .login_container {
+      background: $white-color;
+      padding: 20px 16px;
+      width: 311px;
+    }
+  }
+}
