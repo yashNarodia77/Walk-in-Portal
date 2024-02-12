@@ -1,0 +1,112 @@
+.single_main_header_component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 0px 24px 0px;
+}
+.single_main_header_component .main_edit_component {
+  cursor: pointer;
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 9px;
+  color: rgb(31, 122, 84);
+}
+.single_main_header_component .main_edit_component img {
+  height: 18px;
+  width: 18px;
+}
+
+.mb_24 {
+  margin-bottom: 24px;
+}
+
+.mb_8 {
+  margin-bottom: 8px;
+}
+
+.single_main_component {
+  background-color: rgb(255, 255, 255);
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+.single_main_component .user_image_container {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+.single_main_component .user_image_container img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+}
+.single_main_component .double_container {
+  display: flex;
+  justify-content: normal;
+  align-items: normal;
+  gap: 24px;
+}
+.single_main_component .double_container .single_input_container {
+  flex: 1;
+}
+.single_main_component .flex_16 {
+  display: flex;
+  justify-content: normal;
+  align-items: normal;
+  flex-direction: column;
+  gap: 16px;
+}
+.single_main_component .single_input_container {
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
+  gap: 12px;
+}
+.single_main_component .single_input_container .single_container_title {
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+}
+.single_main_component .single_input_container .resume_info_container {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 8px;
+}
+.single_main_component .single_input_container .resume_info_container .resume_container_title {
+  font-size: 14px;
+}
+.single_main_component .single_input_container .resume_info_container > img {
+  width: 14px;
+  height: 24px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.single_main_component .single_input_container .checkbox_ticked_value_container {
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
+  gap: 16px;
+}
+.single_main_component .single_input_container .referral_title {
+  letter-spacing: 0.3px;
+  width: 480px;
+}
+.single_main_component .single_input_container .single_checkbox_container {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 8px;
+}
+.single_main_component .single_input_container .single_checkbox_container input[type=checkbox],
+.single_main_component .single_input_container .single_checkbox_container input[type=checkbox]:disabled:checked {
+  width: 18px;
+  height: 24px;
+  accent-color: rgb(34, 34, 34);
+}/*# sourceMappingURL=review-proceed.component.css.map */

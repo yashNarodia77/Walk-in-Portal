@@ -1,0 +1,28 @@
+.header {
+  height: 56px;
+  background: rgb(37, 49, 63);
+  background-image: url(../../assets/header\ pattern\ svg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgb(58, 199, 236);
+}
+.header > img {
+  margin-left: 15px;
+  cursor: pointer;
+}
+.header .user_login_container {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36.8px;
+  width: 36.8px;
+  background-color: rgb(60, 78, 98);
+  border: 2px solid rgb(63, 210, 139);
+  margin-right: 16px;
+  color: rgb(255, 255, 255);
+}/*# sourceMappingURL=header.component.css.map */

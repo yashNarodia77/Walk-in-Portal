@@ -1,0 +1,164 @@
+.educational_qualifications {
+  margin-bottom: 24px;
+}
+
+.dd_img_container {
+  height: 56px;
+  width: 32px;
+  border-left: 2px solid rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
+
+.step_input_container .mb-8 {
+  margin-bottom: 8px;
+}
+.step_input_container .step_inputs {
+  background-color: rgb(255, 255, 255);
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
+  gap: 40px;
+}
+.step_input_container .step_inputs .w_small {
+  width: 180px;
+}
+.step_input_container .step_inputs .double_input_container {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 24px;
+}
+.step_input_container .step_inputs .double_input_container .single_input_container {
+  flex: 1;
+}
+.step_input_container .step_inputs .specific_width {
+  width: 452px;
+}
+.step_input_container .step_inputs .flex_16 {
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
+  gap: 16px;
+}
+.step_input_container .step_inputs .single_input_container {
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
+  gap: 12px;
+}
+.step_input_container .step_inputs .single_input_container label {
+  color: rgb(102, 102, 102);
+  font-size: 12px;
+}
+.step_input_container .step_inputs .single_input_container input {
+  border: 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.38);
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-family: quicksand;
+  font-weight: 600;
+}
+.step_input_container .step_inputs .single_input_container select {
+  border: 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.38);
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-family: quicksand;
+  font-weight: 600;
+}
+.step_input_container .step_inputs .single_input_container input:focus,
+.step_input_container .step_inputs .single_input_container select:focus {
+  outline: none;
+}
+.step_input_container .step_inputs .single_input_container input[type=number]::-webkit-inner-spin-button,
+.step_input_container .step_inputs .single_input_container input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.step_input_container .step_inputs .single_input_container .w_small {
+  width: 180px;
+}
+.step_input_container .step_inputs .single_input_container .applicant_type_container {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 24px;
+}
+.step_input_container .step_inputs .single_input_container .applicant_type_container .applicant_type {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 8px;
+  height: 24px;
+}
+.step_input_container .step_inputs .single_input_container .applicant_type_container .applicant_type input[type=radio] {
+  width: 20px;
+  height: 24px;
+  accent-color: rgb(31, 122, 84);
+}
+.step_input_container .step_inputs .single_input_container .applicant_type_container .applicant_type label {
+  font-size: 16px;
+  color: rgb(34, 34, 34);
+}
+.step_input_container .step_inputs .technologies_container {
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
+  gap: 16px;
+}
+.step_input_container .step_inputs .technologies_container .technologies_container_label {
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+}
+.step_input_container .step_inputs .technologies_container .single_checkbox_container {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 9px;
+}
+.step_input_container .step_inputs .technologies_container .single_checkbox_container input[type=checkbox] {
+  background-color: black;
+  padding: 10px;
+  width: 18px;
+  height: 24px;
+  margin: 0px;
+  accent-color: rgb(31, 122, 84);
+}
+.step_input_container .step_inputs .radio_container .radio_container_label {
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+  padding-bottom: 12px;
+}
+.step_input_container .step_inputs .radio_container .radio_container_options {
+  margin-top: 13px;
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 24px;
+}
+.step_input_container .step_inputs .radio_container .radio_container_options .single_radio_container {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 8px;
+}
+.step_input_container .step_inputs .radio_container .radio_container_options .single_radio_container input[type=radio] {
+  width: 20px;
+  height: 24px;
+  accent-color: rgb(31, 122, 84);
+  margin: 0px;
+}/*# sourceMappingURL=qualifications.component.css.map */

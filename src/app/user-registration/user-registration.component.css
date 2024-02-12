@@ -1,0 +1,125 @@
+.register_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  background-color: rgb(60, 78, 98);
+  color: rgb(255, 255, 255);
+  padding: 0px 24px;
+}
+.register_header a {
+  cursor: pointer;
+}
+.register_header a img {
+  width: 16px;
+  height: 24px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.register_header .btn_container {
+  display: flex;
+  justify-content: normal;
+  align-items: normal;
+  gap: 16px;
+}
+.register_header .btn {
+  background-color: rgb(63, 210, 139);
+  width: 90px;
+  height: 28px;
+  border: none;
+  color: rgb(31, 40, 52);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.24);
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: quicksand;
+  font-weight: 600;
+  cursor: pointer;
+}
+.register_header .btn:disabled {
+  color: rgb(31, 40, 52);
+  cursor: default;
+  background-color: rgba(63, 210, 139, 0.5);
+}
+
+.register_container {
+  background-color: rgb(238, 238, 238);
+  min-height: 85vh;
+  padding: 24px;
+  display: flex;
+  justify-content: normal;
+  align-items: normal;
+  flex-direction: column;
+  gap: 24px;
+}
+.register_container .register_steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+}
+.register_container .register_steps hr {
+  margin: 0px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex: 1;
+}
+.register_container .register_steps .step {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 8px;
+}
+.register_container .register_steps .step .step_count {
+  background-color: rgb(117, 117, 117);
+  color: rgb(255, 255, 255);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register_container .register_steps .step .step_count img {
+  width: 12px;
+  height: 12px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.register_container .register_steps .step .already_next_step {
+  background-color: rgb(63, 210, 139);
+  color: rgb(51, 51, 51);
+}
+
+.step_moving_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+.step_moving_btn .next_previous_btn {
+  width: 90px;
+  height: 28px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.24);
+  border-radius: 2px;
+  border: none;
+  background-color: rgb(63, 210, 139);
+  color: rgb(31, 40, 52);
+  font-family: quicksand;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropDown {
+  background-color: rgb(219, 239, 255);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.16);
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dropDown > span {
+  margin-left: 16px;
+}/*# sourceMappingURL=user-registration.component.css.map */
