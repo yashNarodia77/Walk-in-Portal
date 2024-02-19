@@ -1,166 +1,236 @@
-<div class="job__details__and__prereuisites">
-    <div class="job__basic__details__card">
-        <div class="job__basic__details__title">
-            <h1> {{job.title}} </h1>
-            <button>Apply</button>
-        </div>
-        <div class="dateTime__and__location__container">
-            <h6>Date & Time :</h6>
-            <div class="dateTime__and__location">
-                <div class="date"> {{job.startDate}} to {{job.endDate}} </div>
-                <div class="splitter"></div>
-                <div class="location">
-                    <img src="../../assets/icons/location_on_grey_24dp.svg" alt="">
-                    {{job.location}}
-                </div>
+@if(!isAppliedInJob){ @if(job){
+
+<div class="main_conatainer">
+    <div class="go_up_component" (click)="goUpClicked()">
+        <img src="../../assets/icons/arrow_upward_black_24dp.svg" alt="" />
+    </div>
+
+    <div class="list_container">
+        <div class="job_container">
+            <h1>{{ job.title | titlecase }}</h1>
+
+            <div class="apply_in_job">
+                <button [disabled]="isApplyDisabled()" (click)="applyIntoJob()" class="apply_btn">
+                    APPLY
+                </button>
             </div>
-        </div>
-        <hr>
-        <div class="job__roles__container">
-            <h6>Job Roles :</h6>
-            <div class="job__roles">
-                @for(role of job.jobRoleWithDetails;track $index){
-                <div class="role">
-                    <div class="icondiv">
-                        <img src="../../assets/icons/Instructional Designer.svg" alt="">
+
+            <div class="date_time_container">
+                <span>Date & Time :</span>
+
+                <div class="date_time_value">
+                    <div class="">{{ job.sDate }} to {{ job.eDate }}</div>
+                    <div class="splitter"></div>
+                    <div class="location">
+                        <img src="../../assets/icons/location_on_grey_24dp.svg" alt="location icon" />
+                        <span>{{ job.location }}</span>
                     </div>
+                </div>
+            </div>
 
-                    <span> {{role.job_role}} </span>
-                    @if(job.jobRoleWithDetails.length>1 && $index<job.jobRoleWithDetails.length-1){ <div
-                        class="splitter">
+            <hr />
+
+            <div class="job_role_title">Job Roles :</div>
+            <div class="job_role_container">
+                @for(jr of job.job_roles; track $index){
+                <div class="single_job">
+                    <img src="../../assets/icons/Instructional Designer.svg" alt="Instructional Designer icon" />
+                    <span class="">{{ jr }}</span>
+                </div>
+                @if($index !== jr.length){
+                <div class="job_splitter screen_mobile"></div>
+                } }
+            </div>
+
+            @if(job.isExtraRoles){
+            <div class="extra_roles_container">
+                <span class="extra_roles">{{ job.isExtraRolesTitle }}</span>
+            </div>
+            }
+        </div>
+
+        <div class="dropDown" (click)="clickClosePreRequisitesApplication()">
+            <span>Pre-requisites & Application Process</span>
+            <div [ngClass]="['dd_img_container']">
+                <!-- (click)="changeEducationalQualificationsVisible()" -->
+                <!-- [ngClass]="{ rotate180: !isEducationalQualificationsVisible }" -->
+                <img src="../../assets/icons/expand_less_black_24dp.svg" alt="expand less/more icon" [class]="{
+                rotate180: isPreRequisitesApplicationClose
+              }" />
+            </div>
+        </div>
+
+        <div class="single_job_container" [hidden]="isPreRequisitesApplicationClose">
+            <div class="job_container_info">
+                <div class="job_info">
+                    <div class="job_header">General Instructions :</div>
+
+                    <div class="job_value">
+                        @for(desc of job.generalInstructions.split("- "); track $index){
+                        @if(desc.length !== 0){
+
+                        <div class="">- {{ desc }}</div>
+
+                        } }
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="job_info">
+                    <div class="job_header">Instructions for the Exam :</div>
+
+                    <div class="job_value">
+                        @for(desc of job.instructionsForTheExam.split("- "); track $index){
+                        @if(desc.length !== 0){
+
+                        <div class="">- {{ desc }}</div>
+
+                        } }
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="job_info">
+                    <div class="job_header">Minimum System Requirements :</div>
+
+                    <div class="job_value">
+                        <!-- {{ job.requirements[$index] }} -->
+                        @for(reqi of job.minimumSystemRequirements.split("- "); track
+                        $index){ @if(reqi.length !== 0){
+
+                        <div class="">- {{ reqi }}</div>
+
+                        } }
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="job_info">
+                    <div class="job_header">Process :</div>
+
+                    <div class="job_value">
+                        <!-- {{ job.requirements[$index] }} -->
+                        @for(reqi of job.process.split("- "); track $index){ @if(reqi.length
+                        !== 0){
+
+                        <div class="">- {{ reqi }}</div>
+
+                        } }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="time_slot_container">
+        <h1>Time Slots & Preferences</h1>
+
+        <div class="radio_container">
+            <span class="radio_container_label">Select a Time Slot :</span>
+
+            <div class="radio_container_options">
+                @for(timeSlot of job.timeSlots; track $index){
+
+                <div class="single_radio_container">
+                    <input type="radio" name="isInNoticePeriod" [value]="timeSlot" [(ngModel)]="applyInJob.timeSlot" />
+                    <label for="isInNoticePeriod">{{ timeSlot }}</label>
                 </div>
                 }
             </div>
+        </div>
+
+        <hr />
+
+        <div class="technologies_container">
+            <span class="technologies_container_label">Select Your Preference :</span>
+            @for(job_role of job.job_roles; track $index){
+
+            <div class="single_checkbox_container">
+                <input type="checkbox" [id]="'checkbox_' + job_role" [value]="job_role"
+                    [(ngModel)]="applyInJob.preference[$index]" />
+                <label [for]="'checkbox_' + job_role">
+                    {{ job_role }}
+                </label>
+            </div>
             }
+        </div>
+        <hr />
+
+        <div class="upload_resume_container">
+            <label class="input_file_label" for="input_file">
+                <img src="../../assets/icons/Upload_green_24dp.svg" alt="Upload Resume icon" />
+                <!-- @if(userInfo.resumeBase64 !== null && userInfo.resumeBase64.length !== 0
+            && userInfo.resumeName !== null && userInfo.resumeName.length !== 0)
+            {{{userInfo.resumeName}}} @else{Upload Resume} -->
+                Upload Resume
+            </label>
+            <input type="file" accept=".pdf" id="input_file" />
+            <!-- (change)="showResume($event)" -->
         </div>
     </div>
 
-</div>
-<div class="pre__requisites">
-    <h1>Pre-requisites & Application Process</h1>
-    <div class="arrow__container" (click)="tooglePreRequisitesOpen()">
-        <div class="splitter"></div>
-        <mat-icon class="arrow__icon">
-            @if(isPreRequisitesOpen){
-            expand_less
-            }
-            @else{
-            expand_more
-            }
-        </mat-icon>
-    </div>
-</div>
-<div class="pre__requisites__card" [hidden]="!isPreRequisitesOpen">
-    <div class="general__instructions">
-        <h6>General Instructions :</h6>
-        @for (instruction of job.generalInstructions.split('- '); track $index) {
-        @if (instruction.length) {
-        <div> - {{instruction}}</div>
-        }
-        }
-    </div>
-    <hr>
-    <div class="exam__instructions">
-        <h6>Instructions for the Exam :</h6>
-        @for (instruction of job.instructionsForTheExam.split('- '); track $index) {
-        @if (instruction.length) {
-        <div> - {{instruction}}</div>
-        }
-        }
-    </div>
-    <hr>
-    <div class="system__requirements">
-        <h6>Minimum System Requirements :</h6>
-        @for (requirements of job.minimumSystemRequirements.split('- '); track $index) {
-        @if (requirements.length) {
-        <div> - {{requirements}}</div>
-        }
-        }
-    </div>
-    <hr>
-    <div class="process">
-        <h6>Process :</h6>
-        @for (requirements of job.process.split('- '); track $index) {
-        @if (requirements.length) {
-        <div> - {{requirements}}</div>
-        }
-        }
-    </div>
-</div>
-</div>
+    @for(job_role of job.job_roles; track $index){
 
-<div class="timeSlot__preferences">
-    <h1>Time Slots & Preferences</h1>
-    <div class="time__slot">
-        <h6>Select a time Slot:</h6>
-        @for(time of job.timeSlots; track $index){
-        <div class="timing">
-            <input type="radio" name="timing" id="'timing' +{{time}}" [value]="false" />
-            <label for="{{time}}">{{time}}</label>
-        </div>
-        }
-    </div>
-    <hr>
-    <div class="preference">
-        <h6>Select Your Preference :</h6>
-        @for(preference of job.jobRoleWithDetails; track $index){
-        <div class="job__role">
-            <input type="checkbox" id="{preference}" /> {{preference.job_role}}
-        </div>
-        }
-    </div>
-    <hr>
-    <div class="upload_resume_container">
-        <label class="input_file_label" for="input_file">
-            <img class="uplaod__logo svg" src="../../assets/icons/Upload_black_24dp.svg" alt="Upload Resume icon" />
-            Upload Updated Resume
-        </label>
-        <input type="file" accept=".pdf" id="input_file" />
-    </div>
-</div>
-<div class="roles">
-    @for (role of job.jobRoleWithDetails; track $index) {
-    <div class="role__component">
-        <div class="role__component__header">
-            <h1>{{role.job_role}}</h1>
-            <div class="arrow__container" (click)="toogleisJobRolesOpen($index)">
-                <div class="splitter"></div>
-                <mat-icon class="arrow__icon">
-                    @if(isJobRolesOpen[$index]){
-                    expand_less
-                    }
-                    @else{
-                    expand_more
-                    }
-                </mat-icon>
+    <div class="single_job_container" (click)="clickClose($index)">
+        <div class="dropDown">
+            <span>{{ job_role }}</span>
+
+            <div [ngClass]="['dd_img_container']">
+                <!-- (click)="changeEducationalQualificationsVisible()" -->
+                <!-- [ngClass]="{ rotate180: !isEducationalQualificationsVisible }" -->
+                <img src="../../assets/icons/expand_less_black_24dp.svg" alt="expand less/more icon" [class]="{
+                rotate180: jobRolesDrop[$index]
+              }" />
             </div>
         </div>
 
-        <div class="role__details__card" [hidden]="!isJobRolesOpen[$index]">
-            <div class="package__details">
-                <h6>gross compensation package :</h6>
-                <div>Rs. {{role.packages}} lpa </div>
+        <div class="job_container_info" [hidden]="jobRolesDrop[$index]">
+            <div class="job_info">
+                <div class="job_header">gross compensation package :</div>
+
+                <div class="job_value">
+                    Rs. {{ job.packages[$index].toLocaleString("en-IN") }} lpa
+                </div>
             </div>
+
             <hr />
-            <div class="role__description">
-                <h6>Role Description :</h6>
-                @for (desc of role.roleDescription.split('- '); track $index) {
-                @if (desc.length) {
-                <div>- {{desc}}</div>
-                }
-                }
+
+            <div class="job_info">
+                <div class="job_header">Role Description :</div>
+
+                <div class="job_value">
+                    @for(desc of job.roleDescriptions[$index].split("- "); track $index){
+                    @if(desc.length !== 0){
+
+                    <div class="">- {{ desc }}</div>
+
+                    } }
+                </div>
             </div>
+
             <hr />
-            <div class="requirements">
-                <h6>Requirements :</h6>
-                @for (reqs of role.requirements.split('- '); track $index) {
-                @if (reqs.length) {
-                <div>- {{reqs}}</div>
-                }
-                }
+
+            <div class="job_info">
+                <div class="job_header">Requirements :</div>
+
+                <div class="job_value">
+                    <!-- {{ job.requirements[$index] }} -->
+                    @for(reqi of job.requirements[$index].split("- "); track $index){
+                    @if(reqi.length !== 0){
+
+                    <div class="">- {{ reqi }}</div>
+
+                    } }
+                </div>
             </div>
         </div>
-
     </div>
     }
 </div>
+
+} } @else {
+<app-job-applied-successful></app-job-applied-successful>
+}

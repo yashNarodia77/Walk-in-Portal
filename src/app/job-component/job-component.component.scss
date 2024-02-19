@@ -1,302 +1,351 @@
+@import "../../scss/functions";
 @import "../../scss/variables";
-@import "../../scss/mixins";
 
-.job__details__and__prereuisites {
-  h6 {
-    margin: 0;
-    font-size: $xsmall-font + px;
-    color: $sixth-color;
-  }
-  hr {
-    margin: 0;
-    border: 1px solid $border-12-color;
-    flex: 1;
-    width: 100%;
-  }
-  box-shadow: 0px 4px 6px #0000003d;
-  margin: 26px 24px;
-  .pre__requisites {
-    background-color: #dbefff;
-    height: 40px;
-    padding: 10px 8px 10px 16px;
-    margin: 0;
-    box-sizing: border-box;
-    @include displayFlex(space-between, normal);
-    h1 {
-      margin: 0;
-      font-size: 16px;
-    }
+.main_conatainer {
+  background-color: $main-background-color;
+  padding: 26px 24px;
+  min-height: 84vh;
+  @include displayFlex(normal, normal);
+  flex-direction: column;
+  gap: 24px;
 
-    .arrow__container {
-      @include displayFlex(space-between, center);
-      .splitter {
-        border: 1px solid $border-12-color;
-        height: 40px;
-      }
-      .arrow__icon {
+  .hide {
+    display: none;
+  }
+
+  .rotate180 {
+    transform: rotate(180deg);
+  }
+
+  .go_up_component {
+    z-index: 10;
+    @include displayFlex(center, center);
+    height: 36px;
+    width: 36px;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: $button-background-color;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px $border-16-color;
+
+    // img {
+    //   // height: 16px;
+    //   // width: 16px;
+    //   // object-fit: contain;
+    // }
+  }
+
+  .list_container {
+    box-shadow: 0px 4px 6px $border-24-color;
+
+    .job_container {
+      background-color: $white-color;
+      padding: 16px;
+      position: relative;
+      // box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.24);
+
+      h1 {
+        font-size: $large-font + px;
+        margin: 0px;
         color: $secondary-color;
-        margin-left: 8px;
-        // width: 12px;
-        height: 24px;
-        // font-size: 12px;
       }
-    }
-  }
-  .job__basic__details__card {
-    background-color: $white-color;
 
-    padding: 16px;
-    @include displayFlex(normal, normal);
-    flex-direction: column;
-    gap: 16px;
+      .apply_in_job {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        color: $seven-color;
+        font-size: $xsmall-font + px;
+        border-radius: 2px;
 
-    button {
-      background-color: $button-background-color;
-      border: none;
-      padding: 5px 16px;
-      text-decoration: none;
-      color: $primary-color;
-      font-family: quicksand;
-      font-weight: 600;
-      box-shadow: 0px 3px 5px #0000003d;
-      border-radius: 2px;
-      font-size: $small-font + px;
-      cursor: pointer;
-      text-transform: uppercase;
-    }
-    h1 {
-      margin: 0;
-      font-size: 22px;
-    }
+        .apply_btn {
+          cursor: pointer;
+          @include displayFlex(center, center);
+          background-color: $button-background-color;
+          color: $header-background-color;
+          width: 73px;
+          height: 28px;
+          border: 0px;
+          box-shadow: 0px 3px 5px $border-24-color;
+          border-radius: 2px;
+          font-family: quicksand;
+          font-weight: 600;
+        }
 
-    .job__basic__details__title {
-      @include displayFlex(space-between, center);
-    }
-    .dateTime__and__location__container {
-      width: 261px;
-      .dateTime__and__location {
-        margin-top: 8px;
-        @include displayFlex(space-between, center);
-        .date {
+        .apply_btn:disabled {
+          cursor: default;
+          opacity: 0.5;
+        }
+      }
+
+      .date_time_container {
+        margin-top: 16px;
+        @include displayFlex(normal, normal);
+        flex-direction: column;
+        gap: 8px;
+        color: $sixth-color;
+        font-size: $xsmall-font + px;
+
+        .date_time_value {
+          @include displayFlex(normal, center);
+          gap: 16px;
+          color: $primary-color;
           font-size: $small-font + px;
-        }
-        .splitter {
-          border: 1px solid $border-12-color;
-          height: 14px;
-          // margin: 0 10px 0 8px;
-        }
-        .location {
-          @include displayFlex(space-between, center);
-          gap: 4px;
-          > img {
-            width: 16px;
+
+          .splitter {
+            @include splitter($border-12-color, 12);
           }
-          font-size: $xsmall-font + px;
-          color: $sixth-color;
+
+          .location {
+            @include displayFlex(normal, center);
+            gap: 4px;
+            font-size: $xsmall-font + px;
+          }
         }
       }
-    }
-    .job__roles__container {
-      .job__roles {
-        margin-top: 8px;
+
+      hr {
+        margin-top: 16px;
+        border: 1px solid $border-12-color;
+        flex: 1;
+      }
+
+      .job_role_title {
+        font-size: $xsmall-font + px;
+        color: $sixth-color;
+        margin-top: 16px;
+      }
+
+      .job_role_container {
         @include displayFlex(normal, center);
         gap: 8px;
-        .role {
-          color: $secondary-color;
-          .icondiv {
-            @include displayFlex(center, center);
-            padding: 4px;
-            border-radius: 50%;
-            border: 1px solid $black-color;
-            img {
-              height: 16px;
-              width: 16px;
-            }
-          }
-          font-size: $small-font + px;
-          gap: 8px;
+
+        margin-top: 8px;
+
+        .job_splitter {
+          @include splitter($border-12-color, 12);
+        }
+
+        .single_job {
           @include displayFlex(normal, center);
-          .splitter {
-            border: 1px solid $border-12-color;
-            height: 14px;
+          gap: 8px;
+
+          img {
+            border: 1px solid $primary-color;
+            border-radius: 50%;
+            background-color: $white-color;
+            padding: 4px;
           }
+        }
+      }
+
+      .extra_roles_container {
+        margin-top: 16px;
+        .extra_roles {
+          background-color: $yellow-background-color;
+          border-radius: 9px;
+          letter-spacing: 0.25px;
+          padding: 3px 8px;
+          font-size: $xsmall-font + px;
         }
       }
     }
   }
-  .pre__requisites__card {
-    background-color: $white-color;
-    padding: 16px;
-    h6 {
-      margin-bottom: 16px;
-    }
-    font-size: 14px;
-    line-height: 24px;
-    hr {
-      margin: 16px 0;
-    }
-  }
-}
-.timeSlot__preferences {
-  box-shadow: 0px 4px 6px #0000003d;
-  margin: 26px 24px;
-  padding: 16px 0 0 16px;
-  h1 {
-    margin: 0;
-    font-size: 16px;
-    padding-bottom: 24px;
-  }
-  h6 {
-    margin: 0;
-    font-size: $xsmall-font + px;
-    color: $sixth-color;
-    padding-bottom: 18px;
-  }
-  hr {
-    margin: 0;
-    border: 1px solid $border-12-color;
-    flex: 1;
-    width: 100%;
-    margin-bottom: 16px;
-  }
-  input[type="checkbox"] {
-    // appearance: none;
+  .dropDown {
+    background-color: $section-header-color;
+    cursor: pointer;
+    // box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.16);
+    height: 56px;
+    @include displayFlex(space-between, center);
 
-    padding: 0;
-    width: 18px;
-    height: 20px;
-    accent-color: #1f7a54;
-  }
-  input[type="radio"] {
-    margin: 0 8px 0 0;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    outline: none;
-    border: 3px solid #1f7a54;
-  }
-  input[type="radio"]:before {
-    content: "";
-    display: block;
-    width: 70%;
-    height: 70%;
-    margin: 5px 0 0 5px;
-    border-radius: 50%;
-  }
-  input[type="radio"]:checked:before {
-    background: #1f7a54;
-    margin: 2px;
-  }
-  .time__slot {
-    display: flex;
-    flex-direction: column;
-
-    .timing {
-      padding-bottom: 20px;
-      @include displayFlex(start, center);
-    }
-  }
-  .preference {
-    .job__role {
-      padding-bottom: 20px;
-      @include displayFlex(start, center);
-    }
-  }
-  .upload_resume_container {
-    padding-bottom: 19px;
-    span {
-      color: $secondary-color;
-      font-size: $small-font + px;
+    > span {
+      margin-left: 16px;
     }
 
-    .input_file_label {
-      @include displayFlex(normal, center);
-      gap: 8px;
-      font-size: $base-font + px;
-      color: $secondary-color;
-      .svg {
-        filter: invert(0.5) sepia(1) saturate(10) hue-rotate(110deg);
-      }
-    }
-
-    #input_file {
-      display: none;
-    }
-
-    #input_file::-webkit-file-upload-button {
-      background-color: $white-color;
-      border: none;
-    }
-  }
-}
-.roles {
-  margin: 24px;
-  .role__component {
-    margin: 16px 0;
-    box-shadow: 0px 4px 6px #00000029;
-    .role__component__header {
-      background-color: #dbefff;
+    .dd_img_container {
       height: 56px;
-      padding: 10px 8px 10px 16px;
-
-      box-sizing: border-box;
-      @include displayFlex(space-between, normal);
-      h1 {
-        margin: 0;
-        font-size: 16px;
-        @include displayFlex(normal, center);
-      }
-
-      .arrow__container {
-        cursor: pointer;
-        @include displayFlex(space-between, center);
-        .splitter {
-          border: 1px solid $border-12-color;
-          height: 56px;
-        }
-        .arrow__icon {
-          color: $secondary-color;
-          margin-left: 8px;
-          // width: 12px;
-          height: 24px;
-          // font-size: 12px;
-        }
-      }
+      width: 32px;
+      border-left: 2px solid $border-25-color;
+      @include displayFlex(center, center);
+      cursor: pointer;
     }
   }
-  .role__details__card {
+
+  .time_slot_container {
     background-color: $white-color;
     padding: 16px;
-    font-size: 14px;
-    line-height: 24px;
-    hr {
-      margin: 16px 0;
-    }
-    h6 {
-      margin-top: 0;
-      margin-bottom: 16px;
-      // margin: 0;
-      font-size: $xsmall-font + px;
-      color: $sixth-color;
-    }
-  }
-}
+    box-shadow: 0px 4px 6px $border-24-color;
 
-@media (max-width: 376px) {
-  .job__details__and__prereuisites {
-    .job__basic__details__card {
-      .job__roles__container {
-        .job__roles {
-          @include displayFlex(normal, normal);
-          flex-direction: column;
-          .role {
-            .splitter {
-              display: none;
-            }
+    > h1 {
+      margin: 0px;
+      font-size: $base-font + px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .radio_container {
+      .radio_container_label {
+        font-size: $xsmall-font + px;
+        color: $sixth-color;
+        padding-bottom: 12px;
+      }
+
+      .radio_container_options {
+        margin-top: 13px;
+        @include displayFlex(center, normal);
+        flex-direction: column;
+        gap: 16px;
+
+        .single_radio_container {
+          @include displayFlex(normal, center);
+          gap: 8px;
+
+          input[type="radio"] {
+            width: 20px;
+            height: 24px;
+            accent-color: $secondary-color;
+            margin: 0px;
           }
         }
       }
+    }
+
+    hr {
+      margin: 16px 0px;
+      border: 1px solid $border-12-color;
+    }
+
+    .technologies_container {
+      @include displayFlex(center, normal);
+      flex-direction: column;
+      gap: 16px;
+
+      .technologies_container_label {
+        font-size: $xsmall-font + px;
+        color: $sixth-color;
+      }
+
+      .single_checkbox_container {
+        @include displayFlex(normal, center);
+        gap: 9px;
+
+        input[type="checkbox"] {
+          background-color: black;
+          padding: 10px;
+          width: 18px;
+          height: 24px;
+          margin: 0px;
+          accent-color: $secondary-color;
+        }
+      }
+    }
+
+    .upload_resume_container {
+      span {
+        color: $secondary-color;
+        font-size: $small-font + px;
+      }
+
+      .input_file_label {
+        @include displayFlex(normal, center);
+        gap: 8px;
+        font-size: $base-font + px;
+        color: $secondary-color;
+      }
+
+      #input_file {
+        display: none;
+      }
+
+      #input_file::-webkit-file-upload-button {
+        background-color: $white-color;
+        border: none;
+      }
+    }
+  }
+
+  .single_job_container {
+    box-shadow: 0px 4px 6px $border-16-color;
+
+    .job_container_info {
+      background-color: $white-color;
+      padding: 16px;
+      overflow: hidden;
+
+      .job_info {
+        @include displayFlex(center, normal);
+        flex-direction: column;
+        gap: 16px;
+
+        .job_header {
+          color: $sixth-color;
+          font-size: $xsmall-font + px;
+          width: 480px;
+        }
+
+        .job_value {
+          font-size: $small-font + px;
+          div {
+            line-height: 24.5px;
+          }
+        }
+      }
+
+      hr {
+        border: 1px solid $border-12-color;
+        margin: 16px 0px;
+      }
+    }
+  }
+  //   ===================list_container====================
+}
+
+@media screen and (max-width: 376px) {
+  .main_conatainer {
+    padding-bottom: 76px;
+    overflow-y: hidden;
+    .go_up_component {
+      bottom: 48px;
+      // right: 48px;
+    }
+
+    .list_container {
+      .job_container {
+        .job_role_container {
+          @include displayFlex(center, normal);
+          flex-direction: column;
+        }
+        .apply_in_job {
+          position: fixed;
+          top: auto;
+          bottom: 0px;
+          left: 0px;
+          // right: auto;
+          color: $seven-color;
+          font-size: $xsmall-font + px;
+          border-radius: 2px;
+          width: 100vw;
+          overflow: hidden;
+
+          .apply_btn {
+            cursor: pointer;
+            @include displayFlex(center, center);
+            background-color: $button-background-color;
+            color: $header-background-color;
+            width: 100vw;
+            height: 28px;
+            border: 0px;
+            box-shadow: 0px 3px 5px $border-24-color;
+            border-radius: 2px;
+            font-family: quicksand;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    .screen_mobile {
+      display: none;
     }
   }
 }

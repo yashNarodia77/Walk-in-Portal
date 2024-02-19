@@ -3,8 +3,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 // import { ListingComponent } from './listing/listing.component';
 // import { JobComponent } from './job/job.component';
-import { JobListingComponent } from './job-listing/job-listing.component'
-import { JobComponentComponent } from './job-component/job-component.component'
+import { JobListingComponent } from './job-listing/job-listing.component';
+import { JobComponent } from './job-component/job-component.component';
 
 export const routes: Routes = [
   {
@@ -25,7 +25,7 @@ export const routes: Routes = [
   {
     path: 'job/:id',
     pathMatch: 'full',
-    component: JobComponentComponent,
+    component: JobComponent,
   },
   {
     path: '**',
